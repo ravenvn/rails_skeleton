@@ -1,0 +1,2 @@
+class MarketType < ApplicationRecord
+end

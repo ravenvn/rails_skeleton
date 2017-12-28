@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-principal">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="<%= image_url('logo.png')%>" alt="logo"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= root_path %>" class="top-menu"><%= fa_icon "home" %> Trang chủ</a></li>
+        <li><a href="<%= about_path %>" class="top-menu"><%= fa_icon "adjust" %> Giới thiệu</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle top-menu" data-toggle="dropdown">Hà Nội <i class="fa fa-angle-down"></i></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><%= fa_icon "map-marker" %> Nhà cho thuê</a></li>
+              <li><a href="#"><%= fa_icon "map-marker" %> Nhà cần bán</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle top-menu" data-toggle="dropdown">Hồ Chí Minh <i class="fa fa-angle-down"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><%= fa_icon "map-marker" %> Nhà cho thuê</a></li>
+            <li><a href="#"><%= fa_icon "map-marker" %> Nhà cần bán</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle top-menu" data-toggle="dropdown">Đà Nẵng <i class="fa fa-angle-down"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><%= fa_icon "map-marker" %> Nhà cho thuê</a></li>
+            <li><a href="#"><%= fa_icon "map-marker" %> Nhà cần bán</a></li>
+          </ul>
+        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle top-menu" data-toggle="dropdown">Tài khoản <i class="fa fa-user"></i></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="<%= users_edit_profile_path %>"><%= fa_icon "address-card" %> <%= t 'users.edit' %></a></li>
+              <li><a href="<%= edit_user_registration_path %>"><%= fa_icon "address-book" %> <%= t 'devise.edit' %></a></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: 'delete' do %>
+                  <%= fa_icon 'power-off' %> <%= t 'devise.sign_out' %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <div class="navbar-btn">
+              <a href="<%= new_user_registration_path %>" class="btn btn-primary"><%= fa_icon "user-plus" %> Đăng ký</a>
+            </div>
+          </li>
+          <li>
+            <div class="navbar-btn">
+              <a href="<%=  new_user_session_path %>" class="btn btn-success"><%= fa_icon "sign-in" %> Đăng nhập</a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

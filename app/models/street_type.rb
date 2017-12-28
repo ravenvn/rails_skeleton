@@ -1,0 +1,2 @@
+class StreetType < ApplicationRecord
+end

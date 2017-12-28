@@ -1,0 +1,2 @@
+class WardType < ApplicationRecord
+end
